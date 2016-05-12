@@ -1,0 +1,99 @@
+body {
+  display: flex;
+  flex-direction: row;
+  width: 1100px;
+
+  justify-content: center; /*временно*/
+
+}
+
+.sidebar {
+  background-color: #364760;
+  width: 200px;
+
+  display: flex;
+  flex-direction: column;
+
+
+}
+
+.sidebar .folders {  /*как быть с высотой этого дива? (снизу ведь отступ) Можно оставить паддинг? */
+  display: flex;
+  flex-direction: column;
+  padding-top: 12px;
+  padding-bottom: 26px;
+  border-bottom: 3px solid #2a394f;
+}
+
+
+.folders-div {
+  height: 45px;
+  position: relative;
+}
+
+.folders-img {
+  position: absolute;
+  left: 25px;
+  bottom: 15px;
+}
+
+.folders-span {    /* как сделать на одной линии с картинкой? */
+  position: absolute;
+  left: 43px;
+  bottom: 13px;
+}
+
+.sidebar span {
+  font-family: "HelveticaNeue";
+  color: #f2f3f4;
+  font-size: 15px;
+  padding-left: 10px;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/*.labels-rect {
+  border-radius: 3px;
+  max-width: 20px;
+  max-height: 20px;
+
+}
+
+.sidebar .lower-panel {
+
+  background-color: #2a394f;
+}
+.purple {
+  background-color: #7974d0;
+}
+.green {
+  background-color: #01caa0;
+}
+
+.orange {
+  background-color: #f8975a;
+}
+
+.blue {
+  background-color: #00adef;
+}
+
+.red {
+  background-color: #fe4225;
+}*/

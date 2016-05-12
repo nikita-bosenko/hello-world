@@ -1,0 +1,23 @@
+{
+  "name": "trial",
+  "version": "1.0.0",
+  "description": "trial project",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/nikita-bosenko/hello-world.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/nikita-bosenko/hello-world/issues"
+  },
+  "homepage": "https://github.com/nikita-bosenko/hello-world#readme",
+  "devDependencies": {
+    "html-loader": "^0.4.3",
+    "webpack": "^1.13.0"
+  }
+}
