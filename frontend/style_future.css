@@ -9,12 +9,8 @@ body {
 
 .sidebar {
   background-color: #364760;
-  width: 200px;
-
   display: flex;
   flex-direction: column;
-
-
 }
 
 .sidebar .folders {  /*как быть с высотой этого дива? (снизу ведь отступ) Можно оставить паддинг? */

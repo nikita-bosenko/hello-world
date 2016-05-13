@@ -1,1 +1,6 @@
-<div>I AM FOLDERS</div>
+{{ _.forEach(folders, function(folder) { }}
+    <div class="folders-item" id="">
+      <img src="{{= folder.address}}" alt="pic" class="folders-icon"/>
+      <span class="folders-name">{{= folder.title}}</span>
+    </div>
+{{ }); }}

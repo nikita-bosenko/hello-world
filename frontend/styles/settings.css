@@ -1,0 +1,28 @@
+.settings {
+    flex-grow: 0.1;
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-start;
+    background-color: #2a394f;
+}
+
+.settings-item {
+    width: 38px;
+    position: relative;
+}
+
+.settings-item:hover {
+    background-color: #303f58;
+
+
+}
+
+.settings-icon {
+    display:block;
+    position:absolute;
+    left:0;
+    right:0;
+    bottom:0;
+    top:0;
+    margin:auto;
+}

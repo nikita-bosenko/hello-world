@@ -46,17 +46,83 @@
 
 	
 	__webpack_require__(1);
-	var content = __webpack_require__(5);
-	alert(1);
-	var foldersTemplate = __webpack_require__(6);
-	debugger;
-	alert(foldersTemplate);
+	var content = __webpack_require__(6);
 	var _ = __webpack_require__(7);
-	debugger;
 	var $ = __webpack_require__(8);
-	debugger;
+
 	$(document).ready(function () {
-	    alert("ready!");
+	  var foldersTemplate = __webpack_require__(9);
+	  var labelsTemplate = __webpack_require__(16);
+	  var settingsTemplate = __webpack_require__(19);
+
+	  _.templateSettings = {
+	    evaluate: /\{\{(.+?)\}\}/g,
+	    interpolate: /\{\{=(.+?)\}\}/g,
+	    escape: /\{\{-(.+?)\}\}/g
+	  };
+
+	  $.getJSON('folders.json', function (data) {
+	    debugger;
+	    _.forEach(data, function (key, val) {});
+	  });
+
+	  /*[
+	  {
+	  title: "Inbox",
+	  address: require('./images/inbox.png')
+	  },
+	  {
+	  title: "Starred",
+	  address: require('./images/starred.png')
+	  },
+	  {
+	  title: "Draft",
+	  address: require('./images/draft.png')
+	  },
+	  {
+	  title: "Sent Mail",
+	  address: require('./images/sent_mail.png')
+	  },
+	  {
+	  title: "Trash",
+	  address: require('./images/trash.png')
+	  }
+	                  ];*/
+
+	  /*var tmplFldrs = _.template(foldersTemplate);
+	  var resultFldrs = tmplFldrs({folders: folders});
+	  $(resultFldrs).prependTo($('.folders'));*/
+
+	  var labels = [{
+	    title: "Clients",
+	    color: "purple"
+	  }, {
+	    title: "Memo",
+	    color: "green"
+	  }, {
+	    title: "Family",
+	    color: "orange"
+	  }, {
+	    title: "Works",
+	    color: "blue"
+	  }, {
+	    title: "To Read",
+	    color: "red"
+	  }];
+
+	  var tmplLbls = _.template(labelsTemplate);
+	  var resultLbls = tmplLbls({ labels: labels });
+	  $(resultLbls).prependTo($('.labels'));
+
+	  var settings = [{
+	    address: __webpack_require__(20)
+	  }, {
+	    address: __webpack_require__(21)
+	  }];
+
+	  var tmplSttngs = _.template(settingsTemplate);
+	  var resultSttngs = tmplSttngs({ settings: settings });
+	  $(resultSttngs).prependTo($('.settings'));
 	});
 
 /***/ },
@@ -69,7 +135,7 @@
 	var content = __webpack_require__(2);
 	if(typeof content === 'string') content = [[module.id, content, '']];
 	// add the styles to the DOM
-	var update = __webpack_require__(4)(content, {});
+	var update = __webpack_require__(5)(content, {});
 	if(content.locals) module.exports = content.locals;
 	// Hot Module Replacement
 	if(false) {
@@ -91,10 +157,13 @@
 
 	exports = module.exports = __webpack_require__(3)();
 	// imports
-
+	exports.i(__webpack_require__(4), "");
+	exports.i(__webpack_require__(15), "");
+	exports.i(__webpack_require__(17), "");
+	exports.i(__webpack_require__(18), "");
 
 	// module
-	exports.push([module.id, "html, body {\r\n  height: 100%;\r\n}\r\ndiv {\r\n  text-align: center;\r\n}\r\n.container {\r\n width: 100%;\r\n height: 100%;\r\n display: flex;\r\n flex-direction: row;\r\n}\r\n\r\n.sidebar {\r\n  flex-grow: 0.1;\r\n  box-shadow: 2px 0 0 0 #888, 0 2px 0 0 #888, 2px 2px 0 0 #888,  2px 0 0 0 #888 inset,\r\n   0 2px 0 0 #888 inset;\r\n  display: flex;\r\n  flex-direction: column;\r\n}\r\n\r\n    .folders {\r\n      flex-grow: 0.35;\r\n      box-shadow:  2px 0 0 0 #888, 0 2px 0 0 #888, 2px 2px 0 0 #888, 2px 0 0 0 #888 inset,0 2px 0 0 #888 inset;\r\n    }\r\n\r\n    .labels {\r\n      flex-grow: 0.6;\r\n      box-shadow:  2px 0 0 0 #888, 0 2px 0 0 #888, 2px 2px 0 0 #888, 2px 0 0 0 #888 inset,0 2px 0 0 #888 inset;\r\n    }\r\n\r\n    .lower-panel {\r\n      flex-grow: 0.05;\r\n      box-shadow:  2px 0 0 0 #888, 0 2px 0 0 #888, 2px 2px 0 0 #888, 2px 0 0 0 #888 inset,0 2px 0 0 #888 inset;\r\n    }\r\n\r\n.main-field {\r\n position: relative;\r\n flex-grow: 0.9;\r\n box-shadow:  2px 0 0 0 #888, 0 2px 0 0 #888, 2px 2px 0 0 #888, 2px 0 0 0 #888 inset,0 2px 0 0 #888 inset;\r\n display: flex;\r\n flex-direction: row;\r\n}\r\n\r\n.inbox-field {\r\n  flex-grow: 0.35;\r\n  box-shadow:  2px 0 0 0 #888, 0 2px 0 0 #888, 2px 2px 0 0 #888, 2px 0 0 0 #888 inset,0 2px 0 0 #888 inset;\r\n  display:flex;\r\n  flex-direction: column;\r\n}\r\n    .letter {\r\n      height: 86px;\r\n      box-shadow:  2px 0 0 0 #888, 0 2px 0 0 #888, 2px 2px 0 0 #888, 2px 0 0 0 #888 inset,0 2px 0 0 #888 inset;\r\n      margin-top:59px;\r\n    }\r\n\r\n.text-area {\r\n  flex-grow: 0.65;\r\n  box-shadow:  2px 0 0 0 #888, 0 2px 0 0 #888, 2px 2px 0 0 #888, 2px 0 0 0 #888 inset,0 2px 0 0 #888 inset;\r\n}\r\n\r\n.toolbar {\r\n  position: absolute;\r\n  left: 0px;\r\n  right: 0px;\r\n  top: 10px;\r\n  box-shadow:  2px 0 0 0 #888, 0 2px 0 0 #888, 2px 2px 0 0 #888, 2px 0 0 0 #888 inset,0 2px 0 0 #888 inset;\r\n  height: 49px;\r\n  background-color: white;\r\n}\r\n", ""]);
+	exports.push([module.id, "html, body {\r\n  height: 100%;\r\n  margin: 0;\r\n}\r\n\r\n.container {\r\n width: 100%;\r\n height: 100%;\r\n display: flex;\r\n flex-direction: row;\r\n}\r\n\r\n.main-field {\r\n position: relative;\r\n flex-grow: 0.9;\r\n box-shadow:  2px 0 0 0 #888, 0 2px 0 0 #888, 2px 2px 0 0 #888, 2px 0 0 0 #888 inset,0 2px 0 0 #888 inset;\r\n display: flex;\r\n flex-direction: row;\r\n}\r\n\r\n.inbox-field {\r\n  flex-grow: 0.35;\r\n  box-shadow:  2px 0 0 0 #888, 0 2px 0 0 #888, 2px 2px 0 0 #888, 2px 0 0 0 #888 inset,0 2px 0 0 #888 inset;\r\n  display:flex;\r\n  flex-direction: column;\r\n}\r\n    .letter {\r\n      height: 86px;\r\n      box-shadow:  2px 0 0 0 #888, 0 2px 0 0 #888, 2px 2px 0 0 #888, 2px 0 0 0 #888 inset,0 2px 0 0 #888 inset;\r\n      margin-top:59px;\r\n    }\r\n\r\n.text-area {\r\n  flex-grow: 0.65;\r\n  box-shadow:  2px 0 0 0 #888, 0 2px 0 0 #888, 2px 2px 0 0 #888, 2px 0 0 0 #888 inset,0 2px 0 0 #888 inset;\r\n}\r\n\r\n.toolbar {\r\n  position: absolute;\r\n  left: 0px;\r\n  right: 0px;\r\n  top: 10px;\r\n  box-shadow:  2px 0 0 0 #888, 0 2px 0 0 #888, 2px 2px 0 0 #888, 2px 0 0 0 #888 inset,0 2px 0 0 #888 inset;\r\n  height: 49px;\r\n  background-color: white;\r\n}\r\n", ""]);
 
 	// exports
 
@@ -154,6 +223,20 @@
 
 /***/ },
 /* 4 */
+/***/ function(module, exports, __webpack_require__) {
+
+	exports = module.exports = __webpack_require__(3)();
+	// imports
+
+
+	// module
+	exports.push([module.id, "\r\n\r\n.folders {  /*как быть с высотой этого дива? (снизу ведь отступ) Можно оставить паддинг? */\r\n  flex-grow: 0.25;\r\n  display: flex;\r\n  flex-direction: column;\r\n  padding-top: 12px;\r\n  border-bottom: 3px solid #2a394f;\r\n}\r\n\r\n\r\n.folders-item {\r\n  height: 45px;\r\n  position: relative;\r\n}\r\n\r\n.folders-item:hover {\r\n    background-color: #2a394f;\r\n\r\n}\r\n\r\n.folders-icon {\r\n  position: absolute;\r\n  left: 25px;\r\n  bottom: 15px;\r\n}\r\n\r\n.folders-name {    /* как сделать на одной линии с картинкой? */\r\n  position: absolute;\r\n  left: 53px;\r\n  bottom: 13px;\r\n  font-family: sans-serif;\r\n  color: #f2f3f4;\r\n  font-size: 15px;\r\n\r\n\r\n}\r\n\r\n\r\n", ""]);
+
+	// exports
+
+
+/***/ },
+/* 5 */
 /***/ function(module, exports, __webpack_require__) {
 
 	/*
@@ -405,16 +488,10 @@
 
 
 /***/ },
-/* 5 */
-/***/ function(module, exports) {
-
-	module.exports = "It works from content.js";
-
-/***/ },
 /* 6 */
 /***/ function(module, exports) {
 
-	module.exports = "<div>I AM FOLDERS</div>\r\n";
+	module.exports = "It works from content.js";
 
 /***/ },
 /* 7 */
@@ -427,6 +504,83 @@
 /***/ function(module, exports) {
 
 	module.exports = $;
+
+/***/ },
+/* 9 */
+/***/ function(module, exports) {
+
+	module.exports = "{{ _.forEach(folders, function(folder) { }}\r\n    <div class=\"folders-item\" id=\"\">\r\n      <img src=\"{{= folder.address}}\" alt=\"pic\" class=\"folders-icon\"/>\r\n      <span class=\"folders-name\">{{= folder.title}}</span>\r\n    </div>\r\n{{ }); }}\r\n";
+
+/***/ },
+/* 10 */,
+/* 11 */,
+/* 12 */,
+/* 13 */,
+/* 14 */,
+/* 15 */
+/***/ function(module, exports, __webpack_require__) {
+
+	exports = module.exports = __webpack_require__(3)();
+	// imports
+
+
+	// module
+	exports.push([module.id, ".sidebar {\r\n    flex-grow: 0.1;\r\n    background-color: #364760;\r\n    display: flex;\r\n    flex-direction: column;\r\n}", ""]);
+
+	// exports
+
+
+/***/ },
+/* 16 */
+/***/ function(module, exports) {
+
+	module.exports = "{{ _.forEach(labels, function(label) { }}\r\n        <div class=\"labels-item clients\">\r\n            <span class=\"labels-name\">{{= label.title}}</span>\r\n            <div class=\"labels-rect {{= label.color}}\"></div>\r\n        </div>\r\n{{ }); }}\r\n\r\n\r\n";
+
+/***/ },
+/* 17 */
+/***/ function(module, exports, __webpack_require__) {
+
+	exports = module.exports = __webpack_require__(3)();
+	// imports
+
+
+	// module
+	exports.push([module.id, ".labels {\r\n    flex-grow: 0.7;\r\n    display: flex;\r\n    flex-direction: column;\r\n    padding-top: 35px;\r\n    padding-bottom: 26px;\r\n\r\n}\r\n\r\n.labels-item {\r\n    height: 30px;\r\n    margin-bottom: 6px;\r\n    position: relative;\r\n}\r\n\r\n.labels-name {\r\n    position: absolute;\r\n    left: 19px;\r\n    top: 5px;\r\n    font-family: sans-serif;\r\n    color: #f2f3f4;\r\n    font-size: 15px;\r\n}\r\n\r\n.labels-rect {\r\n\r\n    position: absolute;\r\n    top: 5px;\r\n    right: 20px;\r\n    border-radius: 3px;\r\n    width: 20px;\r\n    height: 20px;\r\n    margin-left: 1px;\r\n}\r\n\r\n\r\n.purple {\r\n    background-color: #7974d0;\r\n}\r\n.green {\r\n    background-color: #01caa0;\r\n}\r\n\r\n.orange {\r\n    background-color: #f8975a;\r\n}\r\n\r\n.blue {\r\n    background-color: #00adef;\r\n}\r\n\r\n.red {\r\n    background-color: #fe4225;\r\n}", ""]);
+
+	// exports
+
+
+/***/ },
+/* 18 */
+/***/ function(module, exports, __webpack_require__) {
+
+	exports = module.exports = __webpack_require__(3)();
+	// imports
+
+
+	// module
+	exports.push([module.id, ".settings {\r\n    flex-grow: 0.1;\r\n    display: flex;\r\n    flex-direction: row;\r\n    justify-content: flex-start;\r\n    background-color: #2a394f;\r\n}\r\n\r\n.settings-item {\r\n    width: 38px;\r\n    position: relative;\r\n}\r\n\r\n.settings-item:hover {\r\n    background-color: #303f58;\r\n\r\n\r\n}\r\n\r\n.settings-icon {\r\n    display:block;\r\n    position:absolute;\r\n    left:0;\r\n    right:0;\r\n    bottom:0;\r\n    top:0;\r\n    margin:auto;\r\n}", ""]);
+
+	// exports
+
+
+/***/ },
+/* 19 */
+/***/ function(module, exports) {
+
+	module.exports = "{{ _.forEach(settings, function(setting) { }}\r\n<div class=\"settings-item settings\">\r\n    <img src=\"{{= setting.address}}\" alt=\"pic\" class=\"settings-icon\"/>\r\n</div>\r\n{{ }); }}\r\n";
+
+/***/ },
+/* 20 */
+/***/ function(module, exports, __webpack_require__) {
+
+	module.exports = __webpack_require__.p + "images/settings.png";
+
+/***/ },
+/* 21 */
+/***/ function(module, exports, __webpack_require__) {
+
+	module.exports = __webpack_require__.p + "images/add.png";
 
 /***/ }
 /******/ ]);

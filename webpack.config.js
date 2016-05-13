@@ -7,7 +7,7 @@ module.exports = {
         filename: 'bundle.js'
     },
 
-    watch: false,
+    watch: true,
 
     watchOptions: {
       aggregateTimeout: 100
@@ -17,7 +17,10 @@ module.exports = {
       loaders: [
         { test:  /\.js$/, loader: 'babel'},
         { test: /\.css$/, loader: 'style!css' },
-        { test: /\.html$/, loader: 'html'}
+        { test: /\.html$/, loader: 'html'},
+        { test: /\.png$/, loader: "file-loader?mimetype=image/png&name=images/[name].[ext]" }
+        
+
       ]
     },
     devServer: {
@@ -28,5 +31,9 @@ module.exports = {
     externals: {
       lodash: "_",
       jquery: "$"
+    },
+
+    resolveLoader: {
+       root: path.join(__dirname, 'node_modules')
     }
 };
