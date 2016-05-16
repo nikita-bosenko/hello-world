@@ -46,83 +46,94 @@
 
 	
 	__webpack_require__(1);
-	var content = __webpack_require__(6);
-	var _ = __webpack_require__(7);
-	var $ = __webpack_require__(8);
+	var folders = __webpack_require__(10);
+	var content = __webpack_require__(13);
+	var _ = __webpack_require__(11);
+	var $ = __webpack_require__(14);
+	module.exports = _;
 
 	$(document).ready(function () {
-	  var foldersTemplate = __webpack_require__(9);
-	  var labelsTemplate = __webpack_require__(16);
-	  var settingsTemplate = __webpack_require__(19);
 
-	  _.templateSettings = {
-	    evaluate: /\{\{(.+?)\}\}/g,
-	    interpolate: /\{\{=(.+?)\}\}/g,
-	    escape: /\{\{-(.+?)\}\}/g
-	  };
+	    var labelsTemplate = __webpack_require__(15);
+	    var settingsTemplate = __webpack_require__(16);
+	    var lettersTemplate = __webpack_require__(17);
 
-	  $.getJSON('folders.json', function (data) {
-	    debugger;
-	    _.forEach(data, function (key, val) {});
-	  });
+	    _.templateSettings = {
+	        evaluate: /\{\{(.+?)\}\}/g,
+	        interpolate: /\{\{=(.+?)\}\}/g,
+	        escape: /\{\{-(.+?)\}\}/g
+	    };
 
-	  /*[
-	  {
-	  title: "Inbox",
-	  address: require('./images/inbox.png')
-	  },
-	  {
-	  title: "Starred",
-	  address: require('./images/starred.png')
-	  },
-	  {
-	  title: "Draft",
-	  address: require('./images/draft.png')
-	  },
-	  {
-	  title: "Sent Mail",
-	  address: require('./images/sent_mail.png')
-	  },
-	  {
-	  title: "Trash",
-	  address: require('./images/trash.png')
-	  }
-	                  ];*/
+	    var labels = [{
+	        title: "Clients",
+	        color: "purple"
+	    }, {
+	        title: "Memo",
+	        color: "green"
+	    }, {
+	        title: "Family",
+	        color: "orange"
+	    }, {
+	        title: "Works",
+	        color: "blue"
+	    }, {
+	        title: "To Read",
+	        color: "red"
+	    }];
 
-	  /*var tmplFldrs = _.template(foldersTemplate);
-	  var resultFldrs = tmplFldrs({folders: folders});
-	  $(resultFldrs).prependTo($('.folders'));*/
+	    var tmplLbls = _.template(labelsTemplate);
+	    var resultLbls = tmplLbls({ labels: labels });
+	    $(resultLbls).prependTo($('.labels'));
 
-	  var labels = [{
-	    title: "Clients",
-	    color: "purple"
-	  }, {
-	    title: "Memo",
-	    color: "green"
-	  }, {
-	    title: "Family",
-	    color: "orange"
-	  }, {
-	    title: "Works",
-	    color: "blue"
-	  }, {
-	    title: "To Read",
-	    color: "red"
-	  }];
+	    var settings = [{
+	        address: __webpack_require__(20)
+	    }, {
+	        address: __webpack_require__(21)
+	    }];
 
-	  var tmplLbls = _.template(labelsTemplate);
-	  var resultLbls = tmplLbls({ labels: labels });
-	  $(resultLbls).prependTo($('.labels'));
+	    var tmplSttngs = _.template(settingsTemplate);
+	    var resultSttngs = tmplSttngs({ settings: settings });
+	    $(resultSttngs).prependTo($('.settings'));
 
-	  var settings = [{
-	    address: __webpack_require__(20)
-	  }, {
-	    address: __webpack_require__(21)
-	  }];
+	    var letterMins = [{
+	        senderName: "Louis Van Gaal",
+	        letterSubj: "Mark my words!",
+	        letterPreview: "Hello! My name is Louis and I am a damn sexy motherfucker..."
+	    }, {
+	        senderName: "Louis Van Gaal",
+	        letterSubj: "Mark my words!",
+	        letterPreview: "Hello! My name is Louis and I am a damn sexy motherfucker..."
+	    }, {
+	        senderName: "Louis Van Gaal",
+	        letterSubj: "Mark my words!",
+	        letterPreview: "Hello! My name is Louis and I am a damn sexy motherfucker..."
+	    }, {
+	        senderName: "Louis Van Gaal",
+	        letterSubj: "Mark my words!",
+	        letterPreview: "Hello! My name is Louis and I am a damn sexy motherfucker..."
+	    }, {
+	        senderName: "Louis Van Gaal",
+	        letterSubj: "Mark my words!",
+	        letterPreview: "Hello! My name is Louis and I am a damn sexy motherfucker..."
+	    }];
 
-	  var tmplSttngs = _.template(settingsTemplate);
-	  var resultSttngs = tmplSttngs({ settings: settings });
-	  $(resultSttngs).prependTo($('.settings'));
+	    var tmplLetters = _.template(lettersTemplate);
+	    var resultLetters = tmplLetters({ letterMins: letterMins });
+	    $(resultLetters).appendTo($('.inbox-list'));
+
+	    /* var foldersData = [];
+	    
+	      $.getJSON('folders.json', function(data){
+	    
+	          for(var i=0;i<data.folders.length;i++){
+	              foldersData.push({title: data.folders[i].title, address: data.folders[i].address});
+	            };
+	            var tmplFldrs = _.template(foldersTemplate);
+	          var resultFldrs = tmplFldrs({folders: foldersData});
+	          $(resultFldrs).prependTo($('.folders'));
+	      });*/
+
+	    folders.render();
 	});
 
 /***/ },
@@ -135,7 +146,7 @@
 	var content = __webpack_require__(2);
 	if(typeof content === 'string') content = [[module.id, content, '']];
 	// add the styles to the DOM
-	var update = __webpack_require__(5)(content, {});
+	var update = __webpack_require__(9)(content, {});
 	if(content.locals) module.exports = content.locals;
 	// Hot Module Replacement
 	if(false) {
@@ -158,12 +169,13 @@
 	exports = module.exports = __webpack_require__(3)();
 	// imports
 	exports.i(__webpack_require__(4), "");
-	exports.i(__webpack_require__(15), "");
-	exports.i(__webpack_require__(17), "");
-	exports.i(__webpack_require__(18), "");
+	exports.i(__webpack_require__(5), "");
+	exports.i(__webpack_require__(6), "");
+	exports.i(__webpack_require__(7), "");
+	exports.i(__webpack_require__(8), "");
 
 	// module
-	exports.push([module.id, "html, body {\r\n  height: 100%;\r\n  margin: 0;\r\n}\r\n\r\n.container {\r\n width: 100%;\r\n height: 100%;\r\n display: flex;\r\n flex-direction: row;\r\n}\r\n\r\n.main-field {\r\n position: relative;\r\n flex-grow: 0.9;\r\n box-shadow:  2px 0 0 0 #888, 0 2px 0 0 #888, 2px 2px 0 0 #888, 2px 0 0 0 #888 inset,0 2px 0 0 #888 inset;\r\n display: flex;\r\n flex-direction: row;\r\n}\r\n\r\n.inbox-field {\r\n  flex-grow: 0.35;\r\n  box-shadow:  2px 0 0 0 #888, 0 2px 0 0 #888, 2px 2px 0 0 #888, 2px 0 0 0 #888 inset,0 2px 0 0 #888 inset;\r\n  display:flex;\r\n  flex-direction: column;\r\n}\r\n    .letter {\r\n      height: 86px;\r\n      box-shadow:  2px 0 0 0 #888, 0 2px 0 0 #888, 2px 2px 0 0 #888, 2px 0 0 0 #888 inset,0 2px 0 0 #888 inset;\r\n      margin-top:59px;\r\n    }\r\n\r\n.text-area {\r\n  flex-grow: 0.65;\r\n  box-shadow:  2px 0 0 0 #888, 0 2px 0 0 #888, 2px 2px 0 0 #888, 2px 0 0 0 #888 inset,0 2px 0 0 #888 inset;\r\n}\r\n\r\n.toolbar {\r\n  position: absolute;\r\n  left: 0px;\r\n  right: 0px;\r\n  top: 10px;\r\n  box-shadow:  2px 0 0 0 #888, 0 2px 0 0 #888, 2px 2px 0 0 #888, 2px 0 0 0 #888 inset,0 2px 0 0 #888 inset;\r\n  height: 49px;\r\n  background-color: white;\r\n}\r\n", ""]);
+	exports.push([module.id, "html, body {\r\n  height: 100%;\r\n  margin: 0;\r\n\r\n}\r\n\r\n.container {\r\n width: 100%;\r\n height: 100%;\r\n display: flex;\r\n flex-direction: row;\r\n\r\n}\r\n\r\n.main-field {\r\n position: relative;\r\n\r\n flex-grow: 0.9;\r\n box-shadow:  2px 0 0 0 #888, 0 2px 0 0 #888, 2px 2px 0 0 #888, 2px 0 0 0 #888 inset,0 2px 0 0 #888 inset;\r\n display: flex;\r\n flex-direction: row;\r\n}\r\n\r\n  .inbox-list {\r\n  flex-grow: 0.35;\r\n  border-right: 1px solid #ebeef3;\r\n  display:flex;\r\n  flex-direction: column;\r\n}\r\n\r\n\r\n\r\n\r\n  .text-area {\r\n  flex-grow: 0.65;\r\n  box-shadow:  2px 0 0 0 #888, 0 2px 0 0 #888, 2px 2px 0 0 #888, 2px 0 0 0 #888 inset,0 2px 0 0 #888 inset;\r\n}\r\n\r\n.toolbar {\r\n  position: absolute;\r\n  left: 0px;\r\n  right: 0px;\r\n  top: 10px;\r\n  box-shadow:  2px 0 0 0 #888, 0 2px 0 0 #888, 2px 2px 0 0 #888, 2px 0 0 0 #888 inset,0 2px 0 0 #888 inset;\r\n  height: 49px;\r\n  background-color: white;\r\n}\r\n", ""]);
 
 	// exports
 
@@ -237,6 +249,62 @@
 
 /***/ },
 /* 5 */
+/***/ function(module, exports, __webpack_require__) {
+
+	exports = module.exports = __webpack_require__(3)();
+	// imports
+
+
+	// module
+	exports.push([module.id, ".sidebar {\r\n    flex-grow: 0.1;\r\n    background-color: #364760;\r\n    display: flex;\r\n    flex-direction: column;\r\n}", ""]);
+
+	// exports
+
+
+/***/ },
+/* 6 */
+/***/ function(module, exports, __webpack_require__) {
+
+	exports = module.exports = __webpack_require__(3)();
+	// imports
+
+
+	// module
+	exports.push([module.id, ".labels {\r\n    flex-grow: 0.7;\r\n    display: flex;\r\n    flex-direction: column;\r\n    padding-top: 35px;\r\n    padding-bottom: 26px;\r\n\r\n}\r\n\r\n.labels-item {\r\n    height: 30px;\r\n    margin-bottom: 6px;\r\n    position: relative;\r\n}\r\n\r\n.labels-name {\r\n    position: absolute;\r\n    left: 19px;\r\n    top: 5px;\r\n    font-family: sans-serif;\r\n    color: #f2f3f4;\r\n    font-size: 15px;\r\n}\r\n\r\n.labels-rect {\r\n\r\n    position: absolute;\r\n    top: 5px;\r\n    right: 20px;\r\n    border-radius: 3px;\r\n    width: 20px;\r\n    height: 20px;\r\n    margin-left: 1px;\r\n}\r\n\r\n\r\n.purple {\r\n    background-color: #7974d0;\r\n}\r\n.green {\r\n    background-color: #01caa0;\r\n}\r\n\r\n.orange {\r\n    background-color: #f8975a;\r\n}\r\n\r\n.blue {\r\n    background-color: #00adef;\r\n}\r\n\r\n.red {\r\n    background-color: #fe4225;\r\n}", ""]);
+
+	// exports
+
+
+/***/ },
+/* 7 */
+/***/ function(module, exports, __webpack_require__) {
+
+	exports = module.exports = __webpack_require__(3)();
+	// imports
+
+
+	// module
+	exports.push([module.id, ".settings {\r\n    flex-grow: 0.1;\r\n    display: flex;\r\n    flex-direction: row;\r\n    justify-content: flex-start;\r\n    background-color: #2a394f;\r\n}\r\n\r\n.settings-item {\r\n    width: 38px;\r\n    position: relative;\r\n}\r\n\r\n.settings-item:hover {\r\n    background-color: #303f58;\r\n\r\n\r\n}\r\n\r\n.settings-icon {\r\n    display:block;\r\n    position:absolute;\r\n    left:0;\r\n    right:0;\r\n    bottom:0;\r\n    top:0;\r\n    margin:auto;\r\n}", ""]);
+
+	// exports
+
+
+/***/ },
+/* 8 */
+/***/ function(module, exports, __webpack_require__) {
+
+	exports = module.exports = __webpack_require__(3)();
+	// imports
+
+
+	// module
+	exports.push([module.id, "\r\n.inbox-list-item {\r\n    height: 86px;\r\n    margin-top: 0px;\r\n    position: relative;\r\n    border-bottom: 1px solid #ebeef3;\r\n}\r\n.inbox-list-item:nth-child(1) {\r\n    margin-top: 59px;\r\n}\r\n\r\n    .star-icon {\r\n        position: absolute;\r\n        left: 10px;\r\n        top: 5px;\r\n    }\r\n\r\n    .sender-image {\r\n        position: absolute;\r\n        left: 15px;\r\n        top: 22px;\r\n    }\r\n\r\n    .letter-time {\r\n        position: absolute;\r\n        right: 10px;\r\n        top: 13px;\r\n    }\r\n\r\n    .sender-name {\r\n        position: absolute;\r\n        left: 70px;\r\n        top: 13px;\r\n        color: #b6b6b6;\r\n    }\r\n\r\n    .letter-subject {\r\n        position: absolute;\r\n        left: 70px;\r\n        top: 30px;\r\n        font-weight: bold;\r\n        color: #4f4f4f;\r\n    }\r\n\r\n    .letter-preview {\r\n        position: absolute;\r\n        left: 70px;\r\n        top: 47px;\r\n        color: #b6b6b6;\r\n    }", ""]);
+
+	// exports
+
+
+/***/ },
+/* 9 */
 /***/ function(module, exports, __webpack_require__) {
 
 	/*
@@ -488,87 +556,102 @@
 
 
 /***/ },
-/* 6 */
-/***/ function(module, exports) {
+/* 10 */
+/***/ function(module, exports, __webpack_require__) {
 
-	module.exports = "It works from content.js";
+	/**
+	 * Created by nbosenko on 16.05.2016.
+	 */
+	var _ = __webpack_require__(11);
+	var foldersTemplate = __webpack_require__(12);
+
+	var folders = {
+
+	    render: function () {
+	        var t = this;
+	        this.getData().then(function (data) {
+	            t.createHTML(data);
+	        });
+	    },
+
+	    getData: function () {
+
+	        var requestResult = $.getJSON('folders.json', function (data) {
+	            var foldersData = [];
+	            for (var i = 0; i < data.folders.length; i++) {
+	                foldersData.push({ title: data.folders[i].title, address: data.folders[i].address });
+	            }
+	            return foldersData;
+	        });
+
+	        return requestResult;
+	    },
+
+	    createHTML: function (data) {
+
+	        var tmplFldrs = _.template(foldersTemplate);
+	        alert(foldersTemplate);
+	        var resultFldrs = tmplFldrs({ folders: data });
+	        $(resultFldrs).prependTo($('.folders'));
+	    }
+
+	};
+
+	module.exports = folders;
 
 /***/ },
-/* 7 */
+/* 11 */
 /***/ function(module, exports) {
 
 	module.exports = _;
 
 /***/ },
-/* 8 */
-/***/ function(module, exports) {
-
-	module.exports = $;
-
-/***/ },
-/* 9 */
+/* 12 */
 /***/ function(module, exports) {
 
 	module.exports = "{{ _.forEach(folders, function(folder) { }}\r\n    <div class=\"folders-item\" id=\"\">\r\n      <img src=\"{{= folder.address}}\" alt=\"pic\" class=\"folders-icon\"/>\r\n      <span class=\"folders-name\">{{= folder.title}}</span>\r\n    </div>\r\n{{ }); }}\r\n";
 
 /***/ },
-/* 10 */,
-/* 11 */,
-/* 12 */,
-/* 13 */,
-/* 14 */,
-/* 15 */
-/***/ function(module, exports, __webpack_require__) {
+/* 13 */
+/***/ function(module, exports) {
 
-	exports = module.exports = __webpack_require__(3)();
-	// imports
-
-
-	// module
-	exports.push([module.id, ".sidebar {\r\n    flex-grow: 0.1;\r\n    background-color: #364760;\r\n    display: flex;\r\n    flex-direction: column;\r\n}", ""]);
-
-	// exports
-
+	module.exports = "It works from content.js";
 
 /***/ },
-/* 16 */
+/* 14 */
+/***/ function(module, exports) {
+
+	module.exports = $;
+
+/***/ },
+/* 15 */
 /***/ function(module, exports) {
 
 	module.exports = "{{ _.forEach(labels, function(label) { }}\r\n        <div class=\"labels-item clients\">\r\n            <span class=\"labels-name\">{{= label.title}}</span>\r\n            <div class=\"labels-rect {{= label.color}}\"></div>\r\n        </div>\r\n{{ }); }}\r\n\r\n\r\n";
 
 /***/ },
+/* 16 */
+/***/ function(module, exports) {
+
+	module.exports = "{{ _.forEach(settings, function(setting) { }}\r\n<div class=\"settings-item settings\">\r\n    <img src=\"{{= setting.address}}\" alt=\"pic\" class=\"settings-icon\"/>\r\n</div>\r\n{{ }); }}\r\n";
+
+/***/ },
 /* 17 */
 /***/ function(module, exports, __webpack_require__) {
 
-	exports = module.exports = __webpack_require__(3)();
-	// imports
-
-
-	// module
-	exports.push([module.id, ".labels {\r\n    flex-grow: 0.7;\r\n    display: flex;\r\n    flex-direction: column;\r\n    padding-top: 35px;\r\n    padding-bottom: 26px;\r\n\r\n}\r\n\r\n.labels-item {\r\n    height: 30px;\r\n    margin-bottom: 6px;\r\n    position: relative;\r\n}\r\n\r\n.labels-name {\r\n    position: absolute;\r\n    left: 19px;\r\n    top: 5px;\r\n    font-family: sans-serif;\r\n    color: #f2f3f4;\r\n    font-size: 15px;\r\n}\r\n\r\n.labels-rect {\r\n\r\n    position: absolute;\r\n    top: 5px;\r\n    right: 20px;\r\n    border-radius: 3px;\r\n    width: 20px;\r\n    height: 20px;\r\n    margin-left: 1px;\r\n}\r\n\r\n\r\n.purple {\r\n    background-color: #7974d0;\r\n}\r\n.green {\r\n    background-color: #01caa0;\r\n}\r\n\r\n.orange {\r\n    background-color: #f8975a;\r\n}\r\n\r\n.blue {\r\n    background-color: #00adef;\r\n}\r\n\r\n.red {\r\n    background-color: #fe4225;\r\n}", ""]);
-
-	// exports
-
+	module.exports = "{{ _.forEach(letterMins, function(letterMin) { }}\r\n<div class=\"inbox-list-item\">\r\n\r\n    <div class=\"sender-image\">\r\n        <img src=\"" + __webpack_require__(18) + "\"> <!--как быть с этой картинкой?-->\r\n    </div>\r\n\r\n    <img class=\"star-icon\" src=\"" + __webpack_require__(19) + "\">\r\n    <span class=\"letter-time\">5:43 PM</span>\r\n\r\n    <span class=\"sender-name\">{{= letterMin.senderName}}</span>\r\n    <span class=\"letter-subject\">{{= letterMin.letterSubj}}</span>\r\n    <span class=\"letter-preview\">{{= letterMin.letterPreview}}</span>\r\n\r\n\r\n</div>\r\n{{ }); }}";
 
 /***/ },
 /* 18 */
 /***/ function(module, exports, __webpack_require__) {
 
-	exports = module.exports = __webpack_require__(3)();
-	// imports
-
-
-	// module
-	exports.push([module.id, ".settings {\r\n    flex-grow: 0.1;\r\n    display: flex;\r\n    flex-direction: row;\r\n    justify-content: flex-start;\r\n    background-color: #2a394f;\r\n}\r\n\r\n.settings-item {\r\n    width: 38px;\r\n    position: relative;\r\n}\r\n\r\n.settings-item:hover {\r\n    background-color: #303f58;\r\n\r\n\r\n}\r\n\r\n.settings-icon {\r\n    display:block;\r\n    position:absolute;\r\n    left:0;\r\n    right:0;\r\n    bottom:0;\r\n    top:0;\r\n    margin:auto;\r\n}", ""]);
-
-	// exports
-
+	module.exports = __webpack_require__.p + "images/sender_pic.png";
 
 /***/ },
 /* 19 */
-/***/ function(module, exports) {
+/***/ function(module, exports, __webpack_require__) {
 
-	module.exports = "{{ _.forEach(settings, function(setting) { }}\r\n<div class=\"settings-item settings\">\r\n    <img src=\"{{= setting.address}}\" alt=\"pic\" class=\"settings-icon\"/>\r\n</div>\r\n{{ }); }}\r\n";
+	module.exports = __webpack_require__.p + "images/star_icon.png";
 
 /***/ },
 /* 20 */

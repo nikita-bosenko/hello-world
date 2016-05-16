@@ -1,0 +1,17 @@
+{{ _.forEach(letterMins, function(letterMin) { }}
+<div class="inbox-list-item">
+
+    <div class="sender-image">
+        <img src="../images/sender_pic.png"> <!--как быть с этой картинкой?-->
+    </div>
+
+    <img class="star-icon" src="../images/star_icon.png">
+    <span class="letter-time">5:43 PM</span>
+
+    <span class="sender-name">{{= letterMin.senderName}}</span>
+    <span class="letter-subject">{{= letterMin.letterSubj}}</span>
+    <span class="letter-preview">{{= letterMin.letterPreview}}</span>
+
+
+</div>
+{{ }); }}

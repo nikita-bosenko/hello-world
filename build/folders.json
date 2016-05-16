@@ -6,9 +6,20 @@
       "address": "images/inbox.png"
     },
     {
-      "id": "inbox",
-      "title": "Inbox",
-      "address": "images/inbox.png"
+      "title":"Starred",
+      "address":"images/starred.png"
+    },
+    {
+      "title":"Draft",
+      "address":"images/draft.png"
+    },
+    {
+      "title":"Sent Mail",
+      "address":"images/sent_mail.png"
+    },
+    {
+      "title":"Trash",
+      "address":"images/trash.png"
     }
   ]
 }

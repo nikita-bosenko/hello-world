@@ -2,11 +2,13 @@
 @import './styles/sidebar.css';
 @import './styles/labels.css';
 @import './styles/settings.css';
+@import './styles/letter_min.css';
 
 
 html, body {
   height: 100%;
   margin: 0;
+
 }
 
 .container {
@@ -14,29 +16,29 @@ html, body {
  height: 100%;
  display: flex;
  flex-direction: row;
+
 }
 
 .main-field {
  position: relative;
+
  flex-grow: 0.9;
  box-shadow:  2px 0 0 0 #888, 0 2px 0 0 #888, 2px 2px 0 0 #888, 2px 0 0 0 #888 inset,0 2px 0 0 #888 inset;
  display: flex;
  flex-direction: row;
 }
 
-.inbox-field {
+  .inbox-list {
   flex-grow: 0.35;
-  box-shadow:  2px 0 0 0 #888, 0 2px 0 0 #888, 2px 2px 0 0 #888, 2px 0 0 0 #888 inset,0 2px 0 0 #888 inset;
+  border-right: 1px solid #ebeef3;
   display:flex;
   flex-direction: column;
 }
-    .letter {
-      height: 86px;
-      box-shadow:  2px 0 0 0 #888, 0 2px 0 0 #888, 2px 2px 0 0 #888, 2px 0 0 0 #888 inset,0 2px 0 0 #888 inset;
-      margin-top:59px;
-    }
 
-.text-area {
+
+
+
+  .text-area {
   flex-grow: 0.65;
   box-shadow:  2px 0 0 0 #888, 0 2px 0 0 #888, 2px 2px 0 0 #888, 2px 0 0 0 #888 inset,0 2px 0 0 #888 inset;
 }

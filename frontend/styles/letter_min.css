@@ -1,0 +1,50 @@
+
+.inbox-list-item {
+    height: 86px;
+    margin-top: 0px;
+    position: relative;
+    border-bottom: 1px solid #ebeef3;
+}
+.inbox-list-item:nth-child(1) {
+    margin-top: 59px;
+}
+
+    .star-icon {
+        position: absolute;
+        left: 10px;
+        top: 5px;
+    }
+
+    .sender-image {
+        position: absolute;
+        left: 15px;
+        top: 22px;
+    }
+
+    .letter-time {
+        position: absolute;
+        right: 10px;
+        top: 13px;
+    }
+
+    .sender-name {
+        position: absolute;
+        left: 70px;
+        top: 13px;
+        color: #b6b6b6;
+    }
+
+    .letter-subject {
+        position: absolute;
+        left: 70px;
+        top: 30px;
+        font-weight: bold;
+        color: #4f4f4f;
+    }
+
+    .letter-preview {
+        position: absolute;
+        left: 70px;
+        top: 47px;
+        color: #b6b6b6;
+    }

@@ -1,13 +1,16 @@
 
 require('./style.css');
+var folders = require('./js/folders.js');
 var content = require('./content.js');
 var _ = require('lodash');
 var $ = require('jquery');
+module.exports = _;
 
 $( document ).ready(function() {
-  var foldersTemplate = require('./templates/folders.html');
+  
   var labelsTemplate = require('./templates/labels.html');
   var settingsTemplate = require('./templates/settings.html');
+  var lettersTemplate = require('./templates/letter_min.html');
 
 
   _.templateSettings = {
@@ -16,46 +19,7 @@ $( document ).ready(function() {
     escape: /\{\{-(.+?)\}\}/g
   };
 
-
-
-
-   $.getJSON('folders.json', function(data) {
-       debugger;
-        _.forEach(data, function(key, val) {
-
-        });
-    });
-
-
-    /*[
-    {
-    title: "Inbox",
-    address: require('./images/inbox.png')
-    },
-    {
-    title: "Starred",
-    address: require('./images/starred.png')
-    },
-    {
-    title: "Draft",
-    address: require('./images/draft.png')
-    },
-    {
-    title: "Sent Mail",
-    address: require('./images/sent_mail.png')
-    },
-    {
-    title: "Trash",
-    address: require('./images/trash.png')
-    }
-                    ];*/
-
-
-  /*var tmplFldrs = _.template(foldersTemplate);
-  var resultFldrs = tmplFldrs({folders: folders});
-  $(resultFldrs).prependTo($('.folders'));*/
-
-
+    
 
 var labels = [
   {
@@ -99,6 +63,41 @@ var labels = [
     var resultSttngs = tmplSttngs({settings: settings});
     $(resultSttngs).prependTo($('.settings'));
 
+    var letterMins = [
+        {
+            senderName: "Louis Van Gaal",
+            letterSubj: "Mark my words!",
+            letterPreview: "Hello! My name is Louis and I am a damn sexy motherfucker..."
+        },
+        {
+            senderName: "Louis Van Gaal",
+            letterSubj: "Mark my words!",
+            letterPreview: "Hello! My name is Louis and I am a damn sexy motherfucker..."
+        },
+        {
+            senderName: "Louis Van Gaal",
+            letterSubj: "Mark my words!",
+            letterPreview: "Hello! My name is Louis and I am a damn sexy motherfucker..."
+        },
+        {
+            senderName: "Louis Van Gaal",
+            letterSubj: "Mark my words!",
+            letterPreview: "Hello! My name is Louis and I am a damn sexy motherfucker..."
+        },
+        {
+            senderName: "Louis Van Gaal",
+            letterSubj: "Mark my words!",
+            letterPreview: "Hello! My name is Louis and I am a damn sexy motherfucker..."
+        }
+    ];
+
+
+   var tmplLetters = _.template(lettersTemplate);
+   var resultLetters = tmplLetters({letterMins: letterMins});
+    $(resultLetters).appendTo($('.inbox-list'));
+
+  
+
+   folders.render();
 
 });
-
