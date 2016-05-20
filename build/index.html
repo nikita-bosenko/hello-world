@@ -3,42 +3,55 @@
     <head>
         <meta charset="utf-8">
         <title>Mail App</title>
-      <link href="../frontend/style.css" rel="stylesheet">
+      <link href="../frontend/styles/style.css" rel="stylesheet">
       <script src="http://ajax.googleapis.com/ajax/libs/jquery/1/jquery.min.js"></script>
       <script src="https://yastatic.net/lodash/4.10.0/lodash.min.js"></script>
     </head>
     <body>
       <div class="container">
+
           <div class="sidebar">
-            <div class="folders">
+              <img class = "sidebar-button" src="./images/sidebar_button.png">
+              <div class="folders"></div>
+              <div class="labels"></div>
+              <div class="settings"></div>
 
-
-            </div>
-            <div class="labels">
-
-
-            </div>
-            <div class="settings">
-
-
-            </div>
           </div>
+
           <div class="main-field">
-            <div class="toolbar">TOOLBAR</div>
+
+
             <div class="inbox-list">
+                <div class="inbox-toolbar">
+                    <img class="compose" src="./images/compose.png">
+                    <img class="refresh" src="./images/refresh.png">
+                </div>
+            </div>
+            <div class="text-area hidden">
+                <div class="text-area-toolbar">
+                    <div class="buttons">
+                        <img src="./images/toolbar_reply.png">
+                        <img src="./images/toolbar_archive.png">
+                        <img src="./images/toolbar_trash.png">
+                        <img src="./images/toolbar_spam.png">
+                    </div>
 
-
-
+                    <form action="" method="post" class="search-form">
+                        <div class="form-item">
+                            <input type="text" name="" value="" maxlength="128">
+                        </div>
+                        <div class="form-actions">
+                            <input type="submit" name="op" value="Поиск" class="form-submit">
+                        </div>
+                    </form>
 
                 </div>
             </div>
 
-            <div class="text-area">
-            </div>
-        </div>
+          </div>
+
       </div>
       <script type="text/javascript" src="./bundle.js"></script>
-
-
     </body>
 </html>
+`

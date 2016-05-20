@@ -1,12 +1,26 @@
-
 .inbox-list-item {
     height: 86px;
-    margin-top: 0px;
+    min-height: 86px;
+    max-height: 96px;
+    margin-top: 0;
     position: relative;
     border-bottom: 1px solid #ebeef3;
+
+    /*width: 400px;*/
+
 }
-.inbox-list-item:nth-child(1) {
-    margin-top: 59px;
+.inbox-list-item:nth-child(2) {  /*почему тут двойка?*/
+    margin-top: 62px;
+    border-top: none;
+
+}
+
+.inbox-list-item:nth-child(even) {
+    background-color: #fcfdfe;
+}
+
+.inbox-list-item:hover {
+    background-color: #ffffef;
 }
 
     .star-icon {
@@ -14,37 +28,39 @@
         left: 10px;
         top: 5px;
     }
-
-    .sender-image {
-        position: absolute;
-        left: 15px;
-        top: 22px;
-    }
-
     .letter-time {
         position: absolute;
         right: 10px;
         top: 13px;
+        color: #666666;
+    }
+
+
+    .sender-image {
+
+        float: left;
+        padding: 25px 20px 0 20px;
+        height: 100%;
+    }
+
+    .text-block {
+
+        float: right;
+
     }
 
     .sender-name {
-        position: absolute;
-        left: 70px;
-        top: 13px;
+        display: block;
         color: #b6b6b6;
     }
 
     .letter-subject {
-        position: absolute;
-        left: 70px;
-        top: 30px;
+        display: block;
         font-weight: bold;
         color: #4f4f4f;
     }
 
     .letter-preview {
-        position: absolute;
-        left: 70px;
-        top: 47px;
+        /*display: block;*/
         color: #b6b6b6;
     }

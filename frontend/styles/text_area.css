@@ -1,0 +1,129 @@
+.text-area {
+    position: relative;
+    flex: 3 1;
+    border: 1px solid #ebeef3;
+    padding-top: 62px;
+    padding-left: 25px;
+    padding-right: 25px;
+    border-left: none;
+    border-top: none;
+
+
+
+
+
+}
+
+    hr {
+        border: none; /* Убираем границу для браузера Firefox */
+        color: #ebeef3; /* Цвет линии для остальных браузеров */
+        background-color: #ebeef3; /* Цвет линии для браузера Firefox и Opera */
+        height: 1px; /* Толщина линии */
+        margin-bottom: 12px;
+    }
+
+    .text-area-info {
+        margin-bottom: 40px;
+        color: #b6b6b6;
+    }
+
+    .text-area-contacts {
+        float: left;
+        max-width: 50%;
+        clear: right;
+    }
+
+    .text-area-panel {
+        float: right;
+    }
+
+    .text-area-sender {
+        color: #2a80b9;
+        font-weight: bold;
+    }
+
+    .text-area-subject {
+        color: #4f4f4f;
+    }
+
+    .text-area-letter {
+        color: #666666;
+    }
+
+    .text-area-button {
+        margin-left: 6px;
+    }
+
+
+.text-area-toolbar {
+    position: absolute;
+    left: -1px;
+    right: 0;
+    top: 9px;
+    border: 1px solid #ebeef3;
+    height: 47px;
+    background-color: #eef1f7;
+
+
+
+
+}
+
+.text-area-toolbar .buttons {
+    float: left;
+    margin-top: 7px;
+    margin-left: 15px;
+}
+
+.text-area-toolbar .buttons img {
+
+    margin-right: -7px;
+}
+
+        .search-form{
+            float: right;
+            width:248px;
+            height:28px;
+            border-radius:15px;
+            border:#c9c9c9 solid 1px;
+            margin-right: 30px;
+            margin-top: 8px;
+            background-color: white;
+        }
+        .focus-active{
+            border-color:#aaa !important;
+            background:#fff !important;
+        }
+        .search-form input{
+            padding:0;
+            margin:0;
+            display:block;
+            border:none;
+            outline:none;
+            background:none;
+            width:100%;
+            height:100%;
+        }
+        .search-form .form-actions{
+            width:28px;
+            height:28px;
+            float:left;
+            background:url(../images/search_icon.png) 10px 7px no-repeat;
+        }
+
+        .search-form .form-actions input{
+            overflow:hidden;
+            text-indent:-9999px;
+        }
+        .search-form .form-item{
+            width:210px;
+            padding:0px 5px;
+            float:right;
+            height:28px;
+        }
+        .search-form .form-item input{
+            color:#222;
+            height:auto !important;
+            padding:6px 0;
+        }
+

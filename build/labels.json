@@ -1,0 +1,26 @@
+{
+  "labels": [
+  {
+  "title": "Clients",
+  "color": "purple"
+  },
+  {
+  "title": "Memo",
+  "color": "green"
+  },
+  {
+  "title": "Family",
+  "color": "orange"
+  },
+  {
+  "title": "Works",
+  "color": "blue"
+  },
+
+  {
+  "title": "To Read",
+  "color": "red"
+  }
+  ]
+
+}

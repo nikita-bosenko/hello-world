@@ -4,8 +4,11 @@
 var _ = require('lodash');
 var foldersTemplate = require('../templates/folders.html');
 
-var folders = {
+function Folders(){
 
+}
+
+Folders.prototype = {
     render: function () {
         var t = this;
         this.getData().then(function (data) {
@@ -22,11 +25,11 @@ var folders = {
             for (var i = 0; i < data.folders.length; i++) {
                 foldersData.push({title: data.folders[i].title, address: data.folders[i].address});
             }
-           // alert(foldersData[0].title);
+
             return foldersData;
 
         });
-       // alert(requestResult[0]);
+
 
         return requestResult;
 
@@ -38,8 +41,8 @@ var folders = {
         $(resultFldrs).prependTo($('.folders'));
 
     }
-
 };
 
-module.exports = folders;
+
+module.exports = Folders;
     
