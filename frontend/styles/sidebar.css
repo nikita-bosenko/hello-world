@@ -4,29 +4,21 @@
     flex-direction: column;
     flex: 1 2 50px;
     min-width: 210px;
+    height: 100%;
     position: relative;
-
 }
 
-.sidebar-button {
-    width: 20px;
-    height: 20px;
+
+.arrow {
     position: absolute;
-    top: 35px;
-    left: 10px;
-    visibility: hidden;
+    top: 15px;
+    right: 15px;
+    display: none;
+
 }
 
-@media screen and (max-width: 480px) {
-    .sidebar {
-        min-width: 40px;
-    }
 
-    .sidebar div {
-        visibility: hidden;
-    }
+.sidebar.show {
 
-    .sidebar-button {
-       visibility: visible;
-    }
+
 }

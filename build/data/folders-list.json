@@ -1,5 +1,4 @@
-{
-  "folders": [
+ [
     {
       "id": "inbox",
       "title": "Inbox",
@@ -22,4 +21,4 @@
       "address":"images/trash.png"
     }
   ]
-}
+

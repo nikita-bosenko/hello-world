@@ -3,10 +3,11 @@
  */
 
 var _ = require("lodash");
-var letterTemplate = require('../templates/letter.html');
+var letterTemplate = require('../../templates/letter.html');
 
 function Letter() {
-
+    
+    this._data = null;
 }
 
 Letter.prototype = {
@@ -16,7 +17,7 @@ Letter.prototype = {
         this.getData(id).then(function(letterData){
 
             t.createHTML(letterData[id]);
-            $('.inbox-toolbar').css('right',$('.text-area').outerWidth());
+           
 
         });
 
@@ -26,13 +27,29 @@ Letter.prototype = {
 
     getData: function(id) {
 
-        var promiseOfLetter = $.getJSON('letters.json').then(function(response) {
+        /*var promiseOfLetter = $.getJSON('letters.json').then(function(response) {
 
             return response;
         });
+        return promiseOfLetter;*/
+        var t = this;
+        var deferred = $.Deferred();
 
-        //ЗДЕСЬ В ЛЮБОМ СЛУЧАЕ ВЕСЬ ОТВЕТ В ПРОМИС ПОПАДАЕТ
-        return promiseOfLetter;
+        if(this._data !== null) {
+
+            deferred.resolve(this._data);
+        }
+
+
+        $.getJSON('letters.json').then(function (data) {
+
+            t._data = data;
+            deferred.resolve(t._data);
+
+
+        });
+
+        return deferred;
     },
 
     createHTML: function(data) {

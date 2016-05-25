@@ -5,12 +5,14 @@
     margin-top: 0;
     position: relative;
     border-bottom: 1px solid #ebeef3;
+    min-width: 320px;
 
-    /*width: 400px;*/
+
+
 
 }
-.inbox-list-item:nth-child(2) {  /*почему тут двойка?*/
-    margin-top: 62px;
+.inbox-list-item:nth-child(1) {  /*почему тут двойка?*/
+    margin-top: 58px;
     border-top: none;
 
 }
@@ -39,14 +41,12 @@
     .sender-image {
 
         float: left;
-        padding: 25px 20px 0 20px;
-        height: 100%;
-    }
+        padding: 25px 20px 0 15px;
 
+
+     }
     .text-block {
-
-        float: right;
-
+        padding: 10px 10px 12px 0;
     }
 
     .sender-name {
@@ -61,6 +61,6 @@
     }
 
     .letter-preview {
-        /*display: block;*/
+        display: block;
         color: #b6b6b6;
     }

@@ -1,7 +1,7 @@
-{{ _.forEach(folders, function(folder) { }}
+{{ _.forEach(data, function(data) { }}
     <div class="folders-item" id="">
-      <img src="{{= folder.address}}" alt="pic" class="folders-icon"/>
-      <span class="folders-name">{{= folder.title}}</span>
+      <img src="{{= data.address}}" alt="pic" class="folders-icon"/>
+      <span class="folders-name">{{= data.title}}</span>
     </div>
 {{ }); }}
 s

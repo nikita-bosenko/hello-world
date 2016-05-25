@@ -3,7 +3,7 @@
 @import 'sidebar.css';
 @import 'labels.css';
 @import 'settings.css';
-@import 'letter_min.css';
+@import 'letter_miniature.css';
 @import 'text_area.css';
 
 
@@ -11,8 +11,6 @@ html, body {
   height: 100%;
   margin: 0;
   overflow:  hidden;
-
-
 }
 
 .container {
@@ -20,8 +18,6 @@ html, body {
  height: 100%;
  display: flex;
  flex-direction: row;
-
-
 }
 
 .main-field {
@@ -33,14 +29,14 @@ html, body {
 
 }
 
+  .main-field-inbox{
+      flex: 1 1;
+      border-right: 1px solid #ebeef3;
+      min-width: 320px;
+      position: relative;
+
+  }
   .inbox-list {
-
-  flex: 1 1;
-  border-right: 1px solid #ebeef3;
-  /*flex-basis: 320px;*/
-   min-width: 320px;
-
-
   overflow-y: scroll;
 }
 
@@ -48,19 +44,31 @@ html, body {
 
 .inbox-toolbar {
     z-index: 1000;
-  position: fixed;
-  right: 0;
-  top: 9px;
-  border: 1px solid #ebeef3;
-  height: 47px;
-  background-color: #eef1f7;
-  border-right: none;
-  border-left: none;
+    position: absolute;
+    right: 0;
+    left: 0;
+    top: 9px;
+    border: 1px solid #ebeef3;
+    height: 47px;
+    background-color: #eef1f7;
+    border-right: none;
+    border-left: none;
+    text-align: center;
 }
-        .compose {
-            float:left;
+
+        .sidebar-button {
+            float: left;
             margin-top: 7px;
             margin-left: 15px;
+            display: none;
+        }
+
+        .compose {
+
+            float: left;
+            margin-top: 7px;
+            margin-left: 15px;
+
         }
         .refresh {
             float: right;
@@ -68,7 +76,45 @@ html, body {
             margin-right: 15px;
         }
 
+        .letters-amount {
+            display: block;
+            margin-top: 15px;
+            color: #687189;
+        }
+
+
+
 .hidden {
     display: none;
 }
 
+@media screen and (max-width: 480px) {
+
+    .sidebar {
+
+        display: none;
+    }
+
+    .sidebar-button {
+        display: block;
+    }
+
+    .compose {
+        margin-left: 7px;
+    }
+
+
+
+    .show {
+        display: flex;
+        position: absolute;
+        z-index: 2000;
+
+    }
+
+    .arrow {
+        display: block;
+    }
+
+
+}

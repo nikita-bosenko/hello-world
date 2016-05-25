@@ -2,10 +2,10 @@
  * Created by nbosenko on 17.05.2016.
  */
 var _ = require('lodash');
-var settingsTemplate = require('../templates/settings.html');
+var settingsTemplate = require('../../templates/settings.html');
 
 function Settings() {
-
+    this.render();
 }
 
 Settings.prototype = {
