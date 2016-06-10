@@ -2,19 +2,19 @@
 
 <div class="row store">
 
-  Search: <input ng-model="query">
-  Sort by:
-  <select ng-model="orderProp">
-    <option value="name">Alphabetical</option>
-    <option value="age">Newest</option>
-  </select>
+  <!-- Search: <input ng-model="query">
+   Sort by:
+   <select ng-model="orderProp">
+     <option value="name">Alphabetical</option>
+     <option value="age">Newest</option>
+   </select>-->
 
-    <div class="col-sm-2 store__item col-centered" ng-repeat="book in vm.books | filter:query | orderBy:orderProp" >
-      <a ui-sref="book({bookId: '{{book.id}}' })" class="thumb"><img height="150px" width="100px" alt="Book Image" class="store__item__el store__item__el-image" ng-src="{{book.image}}"></a>
-      <span class="store__item__el store__item__el-name">{{book.name}}</span>
-      <span class="store__item__el store__item__el-author">{{book.author}}</span>
-      <span class="store__item__el store__item__el-date">{{book.date}}</span>
-      <div class="store__item__el-price">{{'$' + book.price}}</div>
+    <div class="col-sm-2 store__item col-centered" ng-repeat="book in vm.books | filter:query | orderBy:orderProp track by $index" >
+      <a ui-sref="book({bookId: '{{book.id}}' })" class="thumb"><img height="150px" width="100px" alt="Book Image" class="store__item__el store__item__el-image" ng-src="{{book.volumeInfo.imageLinks.smallThumbnail}}"></a>
+      <span class="store__item__el store__item__el-name">{{book.volumeInfo.title.length > 27 ? book.volumeInfo.title.substring(0, 26) + '...' : book.volumeInfo.title}}</span>
+      <span class="store__item__el store__item__el-author">{{book.volumeInfo.authors[0]}}</span>
+      <span class="store__item__el store__item__el-date">{{book.volumeInfo.publishedDate.substring(0, 4)}}</span>
+      <div class="store__item__el-price">{{book.saleInfo.listPrice.amount ? '&#8381' + book.saleInfo.listPrice.amount  : 'FREE'}}</div>
     </div>
 
 </div>
