@@ -1,0 +1,34 @@
+<navbar></navbar>
+<div class="bookish container">
+  <img ng-src="{{mainImageUrl}}" class="book">
+
+  <h1>{{book.information.title}}</h1>
+
+  <p class="book-desc">{{book.description}}</p>
+
+  <div class="book-thumbs">
+    <div class="book-pic" ng-repeat="img in book.images">
+      <img ng-src="{{img}}" ng-click="vm.setImage(img)">
+    </div>
+  </div>
+
+
+      <span><b>Information of {{bookId}}:</b></span>
+
+  <ul class="book-info">
+    <li>Title: {{book.information.title}}</li>
+    <li>Author: {{book.information.author}}</li>
+    <li>Date published: {{book.information.date}}</li>
+    <li>Number of pages: {{book.information.pages}}</li>
+    <li>Price: ${{book.information.price}}</li>
+  </ul>
+
+  <div class="book-formats">
+    <u>Available formats:</u>
+    <div class="book-ext" ng-repeat="ext in book.formats">
+      <span>{{ext}}</span>
+    </div>
+  </div>
+
+
+</div>

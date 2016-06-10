@@ -1,0 +1,31 @@
+.bookish {
+  font-size: 4em;
+  color: black;
+  position: relative;
+}
+
+.book-thumbs {
+  position:absolute;
+  top: 0px;
+  right: 0px;
+
+}
+
+.book-pic {
+  display: inline-block;
+}
+
+.book-desc {
+  margin-bottom: 50px;
+}
+
+.book-info {
+  margin-top: 30px;
+}
+
+.book-formats {
+  position: absolute;
+  top: 0;
+  left: 120px;
+  color: grey;
+}
